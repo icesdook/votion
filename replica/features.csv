@@ -1,57 +1,57 @@
 feature,area,priority,original,clone,notes
-Registro e inicio con enlace mágico por email,onboarding,must,yes,no,
-Inicio con Google,onboarding,should,yes,no,
-Crear espacio de trabajo de la oficina,onboarding,must,yes,no,
-Invitar compañeros por email (límite 10),onboarding,must,yes,no,límite de 10 es propio del enfoque
-Aceptar invitación por enlace,onboarding,must,yes,no,
-Sidebar con árbol de páginas anidadas,navegación,must,yes,no,
-Crear página nueva desde el sidebar,páginas,must,yes,no,
-Arrastrar páginas para anidar y reordenar,navegación,must,yes,no,
-Favoritos en el sidebar,navegación,should,yes,no,
-Sección privada vs compartida en el sidebar,navegación,must,yes,no,
-Editor de bloques con texto títulos y listas,editor,must,yes,no,
-Menú / para insertar bloques,editor,must,yes,no,
-Checklist toggle cita callout divisor y código,editor,should,yes,no,
-Imágenes y archivos adjuntos en la página,editor,should,yes,no,
-Arrastrar bloques para reordenar,editor,should,yes,no,
-Ícono y portada de página,páginas,could,yes,no,
-Mención @persona en página,colaboración,must,yes,no,
-Mención @página con enlace interno,colaboración,should,yes,no,
+Registro e inicio con enlace mágico por email,onboarding,must,yes,partial,flujo completo; el envío real del correo llega con replica-backend
+Inicio con Google,onboarding,should,yes,no,replica-backend
+Crear espacio de trabajo de la oficina,onboarding,must,yes,yes,
+Invitar compañeros por email (límite 10),onboarding,must,yes,partial,"límite de 10 es propio del enfoque; invitación, límite y enlace copiable listos; el correo real llega con replica-backend"
+Aceptar invitación por enlace,onboarding,must,yes,yes,
+Sidebar con árbol de páginas anidadas,navegación,must,yes,yes,
+Crear página nueva desde el sidebar,páginas,must,yes,yes,
+Arrastrar páginas para anidar y reordenar,navegación,must,yes,yes,arrastre con mouse; con teclado vía menú Mover
+Favoritos en el sidebar,navegación,should,yes,yes,
+Sección privada vs compartida en el sidebar,navegación,must,yes,yes,
+Editor de bloques con texto títulos y listas,editor,must,yes,yes,BlockNote
+Menú / para insertar bloques,editor,must,yes,yes,en español + Tabla de tareas y Subpágina
+Checklist toggle cita callout divisor y código,editor,should,yes,yes,
+Imágenes y archivos adjuntos en la página,editor,should,yes,partial,el bloque existe; falta la subida a Storage (replica-backend)
+Arrastrar bloques para reordenar,editor,should,yes,yes,
+Ícono y portada de página,páginas,could,yes,partial,"ícono sí, portada no"
+Mención @persona en página,colaboración,must,yes,yes,avisa solo a quien tiene acceso
+Mención @página con enlace interno,colaboración,should,yes,yes,con [[
 Mención @fecha,colaboración,could,yes,no,
-Comentarios a nivel de página,colaboración,must,yes,no,
-Comentarios inline sobre texto o bloque,colaboración,must,yes,no,
-Resolver y reabrir hilos de comentarios,colaboración,must,yes,no,
-Panel de comentarios con filtro,colaboración,should,yes,no,
-Reacciones emoji en comentarios,colaboración,could,yes,no,
-Bandeja de notificaciones (menciones respuestas asignaciones),colaboración,must,yes,no,
-Notificaciones por email resumidas,colaboración,should,yes,no,
-Compartir página: privada o todo el espacio,permisos,must,yes,no,
-Niveles de acceso por persona (editar comentar ver),permisos,should,yes,no,MVP con 4 niveles de los 6 de Notion
-Subpáginas heredan permisos,permisos,must,yes,no,
-Roles del espacio (dueño admin miembro),permisos,must,yes,no,
-Base de datos de tareas como tabla,base de datos,must,yes,no,
-Propiedades: estado persona fecha select texto checkbox,base de datos,must,yes,no,
-Vista tablero con arrastrar entre estados,base de datos,must,yes,no,
-Vista calendario,base de datos,should,yes,no,
-Filtros y orden en vistas,base de datos,should,yes,no,
-Abrir fila como página con contenido y comentarios,base de datos,must,yes,no,
+Comentarios a nivel de página,colaboración,must,yes,yes,
+Comentarios inline sobre texto o bloque,colaboración,must,yes,partial,anclados al bloque con la cita y salto al bloque; sin resaltado del texto dentro del editor
+Resolver y reabrir hilos de comentarios,colaboración,must,yes,yes,
+Panel de comentarios con filtro,colaboración,should,yes,yes,
+Reacciones emoji en comentarios,colaboración,could,yes,yes,
+Bandeja de notificaciones (menciones respuestas asignaciones),colaboración,must,yes,yes,
+Notificaciones por email resumidas,colaboración,should,yes,no,replica-backend (job email-digest)
+Compartir página: privada o todo el espacio,permisos,must,yes,yes,
+Niveles de acceso por persona (editar comentar ver),permisos,should,yes,yes,MVP con 4 niveles de los 6 de Notion
+Subpáginas heredan permisos,permisos,must,yes,yes,misma lógica que page_access() en SQL
+Roles del espacio (dueño admin miembro),permisos,must,yes,yes,
+Base de datos de tareas como tabla,base de datos,must,yes,yes,
+Propiedades: estado persona fecha select texto checkbox,base de datos,must,yes,yes,también número
+Vista tablero con arrastrar entre estados,base de datos,must,yes,yes,arrastre con mouse; con teclado vía menú Mover a
+Vista calendario,base de datos,should,yes,yes,arrastrar a otro día cambia la fecha
+Filtros y orden en vistas,base de datos,should,yes,yes,
+Abrir fila como página con contenido y comentarios,base de datos,must,yes,yes,panel lateral
 Vistas cronograma lista y galería,base de datos,could,yes,no,
-Búsqueda rápida Ctrl+K respetando permisos,búsqueda,must,yes,no,
-Papelera con restaurar,páginas,must,yes,no,
-Historial de versiones de página,páginas,should,yes,no,
-Presencia: quién está viendo la página,tiempo real,should,yes,no,
-Coedición simultánea en tiempo real,tiempo real,should,yes,no,MVP: bloqueo suave por página; CRDT después
-Inicio con páginas recientes y actividad,navegación,should,yes,no,
-Modo oscuro,preferencias,could,yes,no,
-Chat del equipo por canales,chat,must,no,no,nuevo: Notion no tiene chat interno
-Mensajes directos 1 a 1,chat,must,no,no,nuevo
-Mensajes en tiempo real con no leídos,chat,must,no,no,nuevo
-Enlazar páginas en el chat con vista previa,chat,must,no,no,nuevo: conecta chat y documentos
-Convertir mensaje en tarea o página,chat,should,no,no,nuevo: diferenciador
-Chat lateral sobre una página,chat,should,no,no,nuevo
-Hilos y reacciones en el chat,chat,could,no,no,nuevo
-Estado en línea de compañeros,chat,could,no,no,nuevo
-Responsive móvil,plataforma,should,yes,no,
+Búsqueda rápida Ctrl+K respetando permisos,búsqueda,must,yes,yes,"páginas, mensajes y personas"
+Papelera con restaurar,páginas,must,yes,yes,
+Historial de versiones de página,páginas,should,yes,partial,restaurar funciona; la vista previa es texto plano
+Presencia: quién está viendo la página,tiempo real,should,yes,partial,solo 'X está editando' vía bloqueo; presencia real con Supabase Realtime
+Coedición simultánea en tiempo real,tiempo real,should,yes,partial,MVP: bloqueo suave por página; CRDT después; bloqueo suave; CRDT (Yjs) en fase 2
+Inicio con páginas recientes y actividad,navegación,should,yes,yes,más mis tareas y conversaciones recientes
+Modo oscuro,preferencias,could,yes,yes,
+Chat del equipo por canales,chat,must,no,yes,nuevo: Notion no tiene chat interno
+Mensajes directos 1 a 1,chat,must,no,yes,nuevo
+Mensajes en tiempo real con no leídos,chat,must,no,partial,nuevo; en vivo entre pestañas del mismo navegador; entre equipos con Supabase Realtime
+Enlazar páginas en el chat con vista previa,chat,must,no,yes,nuevo: conecta chat y documentos
+Convertir mensaje en tarea o página,chat,should,no,yes,nuevo: diferenciador
+Chat lateral sobre una página,chat,should,no,yes,nuevo
+Hilos y reacciones en el chat,chat,could,no,partial,"nuevo; reacciones sí, hilos no"
+Estado en línea de compañeros,chat,could,no,no,nuevo; Supabase Realtime presence
+Responsive móvil,plataforma,should,yes,yes,probado a 390px
 App nativa iOS y Android,plataforma,could,yes,no,
 Plantillas propias del espacio,páginas,could,yes,no,
 Notion AI y agentes,ia,could,yes,skip,producto aparte con costo por modelo; posible add-on propio a futuro
