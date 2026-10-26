@@ -12,7 +12,12 @@ import { Avatar } from "@/components/ui/avatar";
 
 export function AuthCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <main className="flex min-h-dvh items-center justify-center bg-surface px-4 py-10">
+    <main className="flex min-h-dvh flex-col items-center justify-center gap-6 bg-surface px-4 py-10">
+      <p className="flex items-center gap-2 text-h3 font-bold tracking-tight">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/telar-mark.svg" alt="" width={28} height={28} className="rounded-md" />
+        Telar
+      </p>
       <div className="w-full max-w-[400px] rounded-lg bg-bg p-6 shadow-card md:p-8">
         <h1 className="text-h2 font-semibold">{title}</h1>
         {subtitle && <p className="mt-1 text-sm text-text-muted">{subtitle}</p>}

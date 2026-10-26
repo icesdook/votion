@@ -3,8 +3,9 @@ import { Providers } from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Espacio de trabajo", template: "%s · Espacio de trabajo" },
-  description: "Páginas, tareas y chat para tu oficina, en un solo lugar.",
+  title: { default: "Telar", template: "%s · Telar" },
+  description: "Tu oficina armada desde el primer minuto: páginas, tareas y conversaciones del equipo en un solo lugar.",
+  applicationName: "Telar",
 };
 
 export const viewport: Viewport = {
@@ -12,7 +13,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#191918" },
+    { media: "(prefers-color-scheme: dark)", color: "#1b1917" },
   ],
 };
 

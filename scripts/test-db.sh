@@ -2,7 +2,7 @@
 # Prueba las migraciones en un Postgres local (sin Supabase).
 # Uso: PGHOST=... PGPORT=... PGUSER=postgres scripts/test-db.sh
 set -euo pipefail
-DB=${TEST_DB:-votion_test}
+DB=${TEST_DB:-telar_test}
 cd "$(dirname "$0")/.."
 psql -q -v ON_ERROR_STOP=1 -d postgres -c "drop database if exists $DB" -c "create database $DB" >/dev/null
 psql -q -v ON_ERROR_STOP=1 -d "$DB" -f supabase/tests/00_auth_stub.sql 2>&1 | grep -v -E "wal_level|HINT" || true

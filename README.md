@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Telar
 
-## Getting Started
+Tu oficina armada desde el primer minuto: páginas, tareas y conversaciones del equipo en un solo lugar, en español. Para equipos de hasta 10 personas.
 
-First, run the development server:
+## Probar en local
 
 ```bash
+npm install
+cp .env.example .env.local      # NEXT_PUBLIC_DATA=fake y NEXT_PUBLIC_DEMO=1 para probar sin backend
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Con el modo demo, en `/login` aparece el equipo de ejemplo. Abre dos pestañas con personas distintas para probar el trabajo en conjunto.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pruebas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx playwright test     # punta a punta, accesibilidad y móvil
+npm run test:db         # migraciones y permisos contra un Postgres local
+npm run lint
+```
 
-## Learn More
+## Estructura
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/features/`: pantallas por área (páginas, tareas, chat, bandeja, ajustes)
+- `src/data/api.ts`: todas las operaciones; hoy con datos en el navegador, mañana con Supabase sin cambiar pantallas
+- `supabase/migrations/`: esquema, permisos (RLS) y lógica del servidor
+- `replica/`: investigación, arquitectura, diseño, pruebas, paridad, reseñas, marca y lanzamiento

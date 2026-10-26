@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Telar">
+  <rect width="64" height="64" rx="14" fill="#b34a2c"/>
+  <!-- tejido: el hilo vertical pasa sobre la trama de arriba y bajo la de abajo -->
+  <rect x="11" y="14" width="42" height="9" rx="4.5" fill="#f6c8b4"/>
+  <rect x="26.5" y="10.5" width="11" height="43" rx="5.5" fill="#ffffff" stroke="#b34a2c" stroke-width="3"/>
+  <rect x="15.5" y="31.5" width="33" height="10" rx="5" fill="#f6c8b4" stroke="#b34a2c" stroke-width="3"/>
+</svg>

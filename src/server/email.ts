@@ -10,17 +10,17 @@ function escape(s: string) {
 }
 
 function layout(title: string, body: string) {
-  return `<!doctype html><html lang="es"><body style="margin:0;background:#f7f7f5;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;color:#1f1e1c">
+  return `<!doctype html><html lang="es"><body style="margin:0;background:#faf6f0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;color:#201c18">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:32px 16px">
 <table role="presentation" width="100%" style="max-width:480px;background:#ffffff;border-radius:10px;padding:32px">
 <tr><td><h1 style="font-size:22px;line-height:30px;margin:0 0 12px">${title}</h1>${body}</td></tr></table>
-<p style="font-size:12px;color:#64625d;margin-top:16px">Recibes este correo porque alguien usó tu dirección en nuestra app. Si no fuiste tú, ignóralo.</p>
+<p style="font-size:12px;color:#5f574d;margin-top:16px">Recibes este correo porque alguien usó tu dirección en Telar. Si no fuiste tú, ignóralo.</p>
 </td></tr></table></body></html>`;
 }
 
 function button(href: string, label: string) {
-  return `<p style="margin:24px 0"><a href="${href}" style="background:#2f5bea;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:600;display:inline-block">${label}</a></p>
-<p style="font-size:12px;color:#64625d;word-break:break-all">O copia este enlace: ${href}</p>`;
+  return `<p style="margin:24px 0"><a href="${href}" style="background:#b34a2c;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:600;display:inline-block">${label}</a></p>
+<p style="font-size:12px;color:#5f574d;word-break:break-all">O copia este enlace: ${href}</p>`;
 }
 
 export function inviteEmail(p: { workspace: string; inviter: string; url: string }) {
@@ -30,8 +30,8 @@ export function inviteEmail(p: { workspace: string; inviter: string; url: string
     subject: `${p.inviter} te invitó a ${p.workspace}`,
     html: layout(
       `Te invitaron a ${w}`,
-      `<p style="font-size:15px;line-height:24px;margin:0">${i} quiere que trabajes con su equipo: páginas, tareas y chat en un solo lugar.</p>${button(p.url, "Unirme al equipo")}
-<p style="font-size:13px;color:#64625d">La invitación vence en 7 días.</p>`,
+      `<p style="font-size:15px;line-height:24px;margin:0">${i} te sumó a su oficina en Telar: páginas, tareas y conversaciones del equipo, en un solo lugar.</p>${button(p.url, "Unirme al equipo")}
+<p style="font-size:13px;color:#5f574d">La invitación vence en 7 días.</p>`,
     ),
     text: `${p.inviter} te invitó a ${p.workspace}.\n\nÚnete aquí: ${p.url}\n\nLa invitación vence en 7 días.`,
   };

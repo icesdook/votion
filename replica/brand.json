@@ -1,0 +1,6 @@
+{
+  "name": "Telar",
+  "avoid": ["Notion", "Notion Labs", "Notion AI", "Votion"],
+  "domains": ["notion.so", "notion.com", "notion.site"],
+  "colors": ["#2383e2", "#37352f", "#f7f7f5", "#2f5bea"]
+}
