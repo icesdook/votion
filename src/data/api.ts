@@ -419,7 +419,12 @@ function subtree(db: DB, id: ID) {
   let grew = true;
   while (grew) {
     grew = false;
-    for (const p of db.pages) if (p.parentId && ids.has(p.parentId) && !ids.has(p.id)) (ids.add(p.id), (grew = true));
+    for (const p of db.pages) {
+      if (p.parentId && ids.has(p.parentId) && !ids.has(p.id)) {
+        ids.add(p.id);
+        grew = true;
+      }
+    }
   }
   return ids;
 }

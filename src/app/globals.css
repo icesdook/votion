@@ -32,3 +32,47 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- editor (BlockNote) mapeado a los tokens */
+.ofi-editor .bn-container,
+.ofi-editor .bn-container[data-color-scheme],
+.bn-container[data-color-scheme] {
+  --bn-colors-editor-background: var(--color-bg);
+  --bn-colors-editor-text: var(--color-text);
+  --bn-colors-menu-background: var(--color-bg);
+  --bn-colors-menu-text: var(--color-text);
+  --bn-colors-tooltip-background: var(--color-text);
+  --bn-colors-tooltip-text: var(--color-bg);
+  --bn-colors-hovered-background: var(--color-hover);
+  --bn-colors-hovered-text: var(--color-text);
+  --bn-colors-selected-background: var(--color-accent-soft);
+  --bn-colors-selected-text: var(--color-on-accent-soft);
+  --bn-colors-disabled-text: var(--color-text-faint);
+  --bn-colors-border: var(--color-border);
+  --bn-colors-side-menu: var(--color-text-faint);
+  --bn-colors-shadow: rgba(0, 0, 0, 0.12);
+  --bn-font-family: var(--font-sans);
+  --bn-border-radius: var(--radius-md);
+}
+.ofi-editor .bn-editor {
+  background: transparent;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  padding-inline: 54px;
+}
+@media (max-width: 899px) {
+  .ofi-editor .bn-editor {
+    padding-inline: 12px;
+  }
+}
+.ofi-editor .bn-editor a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-input);
+  text-underline-offset: 2px;
+}
+.ofi-flash {
+  background: var(--color-mention-bg);
+  transition: background-color 600ms ease;
+  border-radius: var(--radius-sm);
+}
