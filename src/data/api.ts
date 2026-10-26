@@ -133,26 +133,108 @@ export async function createWorkspace(name: string, ownerName: string) {
     db.channels.push(general);
     db.channelMembers.push({ channelId: general.id, userId, lastReadAt: now(), muted: false });
     systemMessage(db, general.id, `${prof.name || "Alguien"} creó la oficina.`);
-    db.pages.push({
+    seedOfficeTemplate(db, ws.id, userId, general.id);
+    return ws;
+  });
+}
+
+// ---------------------------------------------------------------- plantilla de oficina (arreglo A de fixes.md)
+const T = (text: string, styles: Record<string, boolean> = {}) => ({ type: "text", text, styles });
+const para = (text: string) => ({ type: "paragraph", content: text ? [T(text)] : [] });
+const head = (text: string, level: 1 | 2 | 3 = 2) => ({ type: "heading", props: { level }, content: [T(text)] });
+const check = (text: string, checked = false) => ({ type: "checkListItem", props: { checked }, content: [T(text)] });
+const bullet = (text: string) => ({ type: "bulletListItem", content: [T(text)] });
+const link = (text: string, pageId: ID) => ({ type: "paragraph", content: [{ type: "link", href: `/w/p/${pageId}`, content: [T(text)] }] });
+
+/** La oficina nace armada: nadie empieza desde una página en blanco. */
+function seedOfficeTemplate(db: DB, wsId: ID, userId: ID, generalId: ID) {
+  const page = (title: string, icon: string, content: PageContent, position: number): Page => {
+    const p: Page = {
       id: uid(),
-      workspaceId: ws.id,
+      workspaceId: wsId,
       parentId: null,
-      title: "Primeros pasos",
-      icon: "👋",
-      content: [
-        { type: "paragraph", content: [{ type: "text", text: "Escribe aquí lo que tu equipo necesita saber. Presiona / para agregar listas, títulos o una tabla de tareas.", styles: {} }] },
-      ],
-      searchText: "Escribe aquí lo que tu equipo necesita saber.",
+      title,
+      icon,
+      content,
+      searchText: scanContent(content).text,
       isPrivate: false,
       ownerId: userId,
-      position: 1,
+      position,
       isDatabaseRow: false,
       createdBy: userId,
       createdAt: now(),
       updatedAt: now(),
-    });
-    return ws;
-  });
+    };
+    db.pages.push(p);
+    return p;
+  };
+  const tasks = seedTasksDB(db, wsId, null, "Tareas del equipo", userId, "board");
+  tasks.page.position = 2;
+  const reuniones = page(
+    "Reuniones semanales",
+    "🗓️",
+    [
+      para("Copia este bloque para cada reunión. Escribe @ para nombrar a alguien y avisarle."),
+      head("Lunes (fecha)", 2),
+      head("Asistentes", 3),
+      bullet(""),
+      head("Temas", 3),
+      bullet(""),
+      head("Acuerdos", 3),
+      check(""),
+      head("Próximos pasos", 3),
+      para("Convierte cada acuerdo en una tarea: escribe en el chat y usa «Convertir en tarea»."),
+    ],
+    3,
+  );
+  const manual = page(
+    "Manual de la oficina",
+    "📘",
+    [
+      para("Lo que todos deben saber, en un solo lugar."),
+      head("Horario", 2),
+      para(""),
+      head("Cómo nos comunicamos", 2),
+      bullet("Avisos para todos: canal #general."),
+      bullet("Temas de un documento: botón Conversar dentro de la página."),
+      bullet("Pedidos con fecha: una tarea en Tareas del equipo."),
+      head("Vacaciones y permisos", 2),
+      para(""),
+      head("Contactos útiles", 2),
+      para(""),
+    ],
+    4,
+  );
+  const welcome = page(
+    "Bienvenida",
+    "👋",
+    [
+      para("Este es el lugar de la oficina para escribir, organizar el trabajo y conversar."),
+      head("Primeros pasos", 2),
+      check("Invita a tu equipo desde Ajustes"),
+      check("Saluda en #general"),
+      check("Crea la primera tarea y asígnala a alguien"),
+      check("Completa el horario en el Manual de la oficina"),
+      head("Lo que ya está listo", 2),
+      link("✅ Tareas del equipo", tasks.page.id),
+      link("🗓️ Reuniones semanales", reuniones.id),
+      link("📘 Manual de la oficina", manual.id),
+      head("Atajos", 2),
+      bullet("Escribe / para agregar títulos, listas o una tabla de tareas."),
+      bullet("Escribe @ para nombrar a alguien: le llega un aviso."),
+      bullet("Ctrl + K para buscar cualquier cosa."),
+    ],
+    1,
+  );
+  // una tarea de ejemplo para que el tablero no esté vacío
+  const status = db.dbProperties.find((p) => p.id === tasks.statusId)!;
+  const rowPage = page("Revisar la página de Bienvenida", "", [], 0);
+  rowPage.parentId = tasks.page.id;
+  rowPage.isDatabaseRow = true;
+  rowPage.icon = null;
+  db.dbRows.push({ id: uid(), databaseId: tasks.databaseId, pageId: rowPage.id, values: { [tasks.statusId]: status.options[0].id }, position: 0, createdAt: now(), updatedAt: now() });
+  db.favorites.push({ userId, pageId: tasks.page.id, position: 1 });
+  db.messages.push({ id: uid(), channelId: generalId, authorId: null, body: [{ t: "text", v: "Todo listo. Empieza por " }, { t: "page", id: welcome.id }], createdAt: now() });
 }
 
 export async function inviteMembers(emails: string[]) {
@@ -632,55 +714,62 @@ export async function markRead(ids: ID[] | "all") {
 }
 
 // ---------------------------------------------------------------- base de datos de tareas (F07)
+/** Crea una página con base de datos de tareas (Estado, Responsable, Fecha) y vistas tabla, tablero y calendario. */
+function seedTasksDB(db: DB, workspaceId: ID, parentId: ID | null, name: string, userId: ID, firstView: ViewType = "table") {
+  const page: Page = {
+    id: uid(),
+    workspaceId,
+    parentId,
+    title: name,
+    icon: "✅",
+    content: [],
+    searchText: "",
+    isPrivate: false,
+    ownerId: userId,
+    position: nextPosition(db, parentId, workspaceId),
+    isDatabaseRow: false,
+    createdBy: userId,
+    createdAt: now(),
+    updatedAt: now(),
+  };
+  db.pages.push(page);
+  const dbId = uid();
+  db.databases.push({ id: dbId, pageId: page.id, name });
+  const st = uid();
+  const date = uid();
+  db.dbProperties.push(
+    {
+      id: st,
+      databaseId: dbId,
+      name: "Estado",
+      type: "status",
+      position: 1,
+      options: [
+        { id: uid(), label: "Por hacer", color: "gray" },
+        { id: uid(), label: "En curso", color: "blue" },
+        { id: uid(), label: "Listo", color: "green" },
+      ],
+    },
+    { id: uid(), databaseId: dbId, name: "Responsable", type: "person", position: 2, options: [] },
+    { id: date, databaseId: dbId, name: "Fecha", type: "date", position: 3, options: [] },
+  );
+  const views: { name: string; type: ViewType; config: ViewConfig }[] = [
+    { name: "Tabla", type: "table", config: {} },
+    { name: "Tablero", type: "board", config: { groupBy: st } },
+    { name: "Calendario", type: "calendar", config: { dateProperty: date } },
+  ];
+  views.sort((x, y) => (x.type === firstView ? -1 : y.type === firstView ? 1 : 0));
+  views.forEach((v, i) => db.dbViews.push({ id: uid(), databaseId: dbId, position: i + 1, ...v }));
+  return { page, databaseId: dbId, statusId: st };
+}
+
 export async function createDatabase(parentId: ID | null, name = "Tareas") {
   const userId = me();
   return mutate((db) => {
     const ws = workspaceOf(db, userId);
     if (!ws) throw new DomainError("forbidden");
     if (parentId) requireLevel(db, parentId, userId, LEVEL.edit);
-    const page: Page = {
-      id: uid(),
-      workspaceId: ws.id,
-      parentId,
-      title: name,
-      icon: "✅",
-      content: [],
-      searchText: "",
-      isPrivate: false,
-      ownerId: userId,
-      position: nextPosition(db, parentId, ws.id),
-      isDatabaseRow: false,
-      createdBy: userId,
-      createdAt: now(),
-      updatedAt: now(),
-    };
-    db.pages.push(page);
-    const dbId = uid();
-    db.databases.push({ id: dbId, pageId: page.id, name });
-    const st = uid();
-    db.dbProperties.push(
-      {
-        id: st,
-        databaseId: dbId,
-        name: "Estado",
-        type: "status",
-        position: 1,
-        options: [
-          { id: uid(), label: "Por hacer", color: "gray" },
-          { id: uid(), label: "En curso", color: "blue" },
-          { id: uid(), label: "Listo", color: "green" },
-        ],
-      },
-      { id: uid(), databaseId: dbId, name: "Responsable", type: "person", position: 2, options: [] },
-    );
-    const date = uid();
-    db.dbProperties.push({ id: date, databaseId: dbId, name: "Fecha", type: "date", position: 3, options: [] });
-    db.dbViews.push(
-      { id: uid(), databaseId: dbId, name: "Tabla", type: "table", config: {}, position: 1 },
-      { id: uid(), databaseId: dbId, name: "Tablero", type: "board", config: { groupBy: st }, position: 2 },
-      { id: uid(), databaseId: dbId, name: "Calendario", type: "calendar", config: { dateProperty: date }, position: 3 },
-    );
-    return page;
+    return seedTasksDB(db, ws.id, parentId, name, userId).page;
   });
 }
 

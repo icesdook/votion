@@ -21,6 +21,14 @@ test.describe("F01 crear la oficina e invitar", () => {
     await page.waitForURL("**/w");
     await expect(page.getByRole("button", { name: /Estudio Ñuble 🏔️/ })).toBeVisible(); // F01-E4 tildes y emoji
     await expect(page.getByRole("navigation", { name: "Principal" }).getByRole("link", { name: "general", exact: true })).toBeVisible();
+    // la oficina nace armada (arreglo A)
+    const tree = page.getByRole("tree", { name: "Páginas de la oficina" });
+    for (const t of ["Bienvenida", "Tareas del equipo", "Reuniones semanales", "Manual de la oficina"]) {
+      await expect(tree.getByRole("treeitem", { name: new RegExp(t) })).toBeVisible();
+    }
+    await tree.getByRole("treeitem", { name: /Tareas del equipo/ }).getByRole("link").click();
+    await expect(page.getByRole("tab", { name: /Tablero/ })).toHaveAttribute("aria-selected", "true");
+    await expect(page.getByRole("button", { name: "Revisar la página de Bienvenida" })).toBeVisible();
   });
 
   test("F01-E2 sin nombre de oficina no avanza", async ({ page, errors }) => {

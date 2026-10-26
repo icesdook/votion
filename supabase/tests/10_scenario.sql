@@ -16,9 +16,13 @@ grant execute on function ok(boolean,text) to authenticated, anon;
 set role authenticated; select as_user('a0000000-0000-0000-0000-00000000000a');
 insert into _r values ('ws', create_workspace('Estudio Biobío', 'Ana'));
 select ok((select count(*) from channels where name='general')=1, 'oficina con #general');
-select ok((select count(*) from pages)=1, 'página de bienvenida visible para Ana');
+select ok((select count(*) from pages where parent_id is null)=4, 'oficina armada: 4 páginas raíz');
+select ok((select count(*) from databases)=1 and (select count(*) from db_views)=3, 'tablero de tareas con 3 vistas');
+select ok((select name from db_views order by position limit 1)='Tablero', 'el tablero es la primera vista');
+select ok((select count(*) from db_rows)=1, 'una tarea de ejemplo');
+select ok((select count(*) from favorites where user_id=auth.uid())=1, 'tareas en favoritos');
 select ok((select name from profiles where id=auth.uid())='Ana', 'nombre guardado');
-select ok((select count(*) from messages)=1, 'mensaje del sistema en #general');
+select ok((select count(*) from messages)=2, 'mensajes del sistema en #general');
 
 -- 2. invitaciones
 insert into _r select 'inv', invite_members(array['beto@ofi.cl','malo','intruso@otro.cl'])::text;

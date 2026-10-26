@@ -124,9 +124,13 @@ export function PageEditor({
 
   const slashItems = useMemo(
     () => (ed: Editor): DefaultReactSuggestionItem[] => {
-      const base = getDefaultReactSlashMenuItems(ed).filter((i) => !["Video", "Audio", "Emoji"].includes(i.title));
-      return [
-        ...base,
+      // arreglo B de fixes.md: lo común primero, el resto agrupado en "Más bloques"
+      const COMMON = ["paragraph", "heading", "heading_2", "bullet_list", "numbered_list", "check_list", "toggle_list", "quote"];
+      const HIDDEN = ["video", "audio", "emoji", "file"];
+      const all = getDefaultReactSlashMenuItems(ed) as (DefaultReactSuggestionItem & { key?: string })[];
+      const common = COMMON.map((k) => all.find((i) => i.key === k)).filter(Boolean).map((i) => ({ ...i!, group: "Básicos" }));
+      const more = all.filter((i) => !COMMON.includes(i.key ?? "") && !HIDDEN.includes(i.key ?? "")).map((i) => ({ ...i, group: "Más bloques" }));
+      const team: DefaultReactSuggestionItem[] = [
         {
           title: "Tabla de tareas",
           subtext: "Tareas con estado, responsable y fecha, en tabla, tablero o calendario",
@@ -157,6 +161,7 @@ export function PageEditor({
           },
         },
       ];
+      return [...common, ...team, ...more];
     },
     [pageId, router],
   );

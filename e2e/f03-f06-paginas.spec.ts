@@ -57,6 +57,22 @@ test.describe("F03 crear y escribir una página", () => {
   });
 });
 
+test.describe("F03 menú /", () => {
+  test("F03-E6 lo común primero y el resto en 'Más bloques'", async ({ page, errors }) => {
+    void errors;
+    await loginAs(page, "camila");
+    await page.getByRole("button", { name: "Nueva página", exact: true }).click();
+    await expect(page.getByLabel("Título")).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page.getByLabel("Contenido de la página")).toBeFocused();
+    await page.keyboard.type("/");
+    const menu = page.locator(".bn-suggestion-menu");
+    await expect(menu).toBeVisible();
+    const groups = await menu.locator(".bn-suggestion-menu-label").allInnerTexts();
+    expect(groups.slice(0, 3)).toEqual(["Básicos", "Equipo", "Más bloques"]);
+  });
+});
+
 test.describe("F04 organizar páginas", () => {
   test("F04-H1 subpágina, favorito y mover a privado", async ({ page, errors }) => {
     void errors;

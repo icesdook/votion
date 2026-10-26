@@ -62,3 +62,11 @@ SSO SAML y auditoría,seguridad,could,yes,skip,no aplica a 10 personas
 Invitados externos,permisos,could,yes,skip,MVP solo miembros de la oficina
 Teamspaces múltiples,navegación,could,yes,skip,una oficina = un espacio
 API pública para desarrolladores,integraciones,could,yes,skip,fuera del MVP
+"Oficina lista al crearla (Bienvenida, Tareas, Reuniones, Manual)",onboarding,must,no,yes,"arreglo A: curva 32 + armado 10, 3 fuentes; hecho: fake + SQL (0003), probado"
+Menú / corto con 'Más bloques',editor,should,no,yes,arreglo B: demasiadas opciones; hecho: Básicos / Equipo / Más bloques
+Aviso el día antes del plazo de una tarea asignada,base de datos,should,no,no,"arreglo C: tareas 8, 2 fuentes; job del backend"
+Precio plano por oficina y cancelar en un clic,facturación,must,no,no,arreglo D: cobros 9 + precio 9; replica-launch
+Ayuda humana en español dentro de la app,soporte,should,no,no,arreglo E: soporte 6
+Sin IA obligatoria; alojable en servidor propio,privacidad,could,no,no,arreglo F: IA 11 + privacidad 4
+App instalable (PWA) con lectura sin conexión,plataforma,should,no,no,arreglo G: sin conexión 12 + móvil 27
+Prueba de rendimiento en la suite,calidad,could,no,no,arreglo H: lentitud 24
