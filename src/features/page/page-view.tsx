@@ -209,7 +209,7 @@ export function PageBody({ pageId, embedded, onOpenAsPage }: { pageId: ID; embed
         ) : (
           page.icon && <div className="mb-2 text-4xl leading-none">{page.icon}</div>
         )}
-        <TitleInput page={page} readOnly={!canEdit} onEnter={() => document.querySelector<HTMLElement>(`[data-page-editor="${pageId}"] [contenteditable="true"]`)?.focus()} />
+        <TitleInput page={page} readOnly={!canEdit} onEnter={() => focusEditorWhenReady(pageId)} />
         <p className="mt-1 text-xs text-text-faint">
           Editada {relTime(page.updatedAt)}
           {page.updatedBy && ` por ${profileName(db, page.updatedBy)}`}
@@ -368,6 +368,18 @@ export function PageBody({ pageId, embedded, onOpenAsPage }: { pageId: ID; embed
       </Dialog>
     </div>
   );
+}
+
+/** Enter en el título: pasa al editor aunque aún esté cargando (sin que lo escrito caiga en el título). */
+function focusEditorWhenReady(pageId: ID) {
+  (document.activeElement as HTMLElement | null)?.blur();
+  const started = Date.now();
+  const tryFocus = () => {
+    const el = document.querySelector<HTMLElement>(`[data-page-editor="${pageId}"] [contenteditable="true"]`);
+    if (el) return el.focus();
+    if (Date.now() - started < 4000) requestAnimationFrame(tryFocus);
+  };
+  tryFocus();
 }
 
 function TitleInput({ page, readOnly, onEnter }: { page: Page; readOnly: boolean; onEnter: () => void }) {

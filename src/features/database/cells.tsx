@@ -98,7 +98,8 @@ export function CellEditor({ prop, value, onChange, readOnly, className }: { pro
   }
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className={base} aria-label={`${prop.name}: cambiar`}>
+      <PopoverTrigger className={base}>
+        <span className="sr-only">{prop.name}: </span>
         <CellDisplay prop={prop} value={value} />
       </PopoverTrigger>
       <PopoverContent align="start" className="w-64">

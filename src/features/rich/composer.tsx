@@ -65,6 +65,7 @@ export const Composer = forwardRef<
   const [suggest, setSuggest] = useState<Suggest>(null);
   const [sel, setSel] = useState(0);
   const taRef = useRef<HTMLTextAreaElement>(null);
+  const [below, setBelow] = useState(false);
 
   useImperativeHandle(ref, () => ({ focus: () => taRef.current?.focus(), setText }));
 
@@ -90,6 +91,9 @@ export const Composer = forwardRef<
   }, [ctx, suggest, pageScope]);
 
   const detect = (value: string, caret: number) => {
+    // si arriba no hay espacio (p. ej. el comentario al inicio del panel), la lista se abre hacia abajo
+    const top = taRef.current?.getBoundingClientRect().top ?? 999;
+    setBelow(top < 280);
     const before = value.slice(0, caret);
     const at = before.match(/(^|\s)@([^\s@]{0,30})$/);
     if (at) return setSuggest({ kind: "user", start: caret - at[2].length - 1, query: at[2] }), setSel(0);
@@ -128,7 +132,7 @@ export const Composer = forwardRef<
   return (
     <div className="relative">
       {suggest && options.length > 0 && (
-        <div role="listbox" aria-label={suggest.kind === "user" ? "Personas" : "Páginas"} className="absolute bottom-full left-0 z-30 mb-1 w-72 rounded-lg bg-bg p-1 shadow-pop">
+        <div role="listbox" aria-label={suggest.kind === "user" ? "Personas" : "Páginas"} className={cn("absolute left-0 z-30 w-72 rounded-lg bg-bg p-1 shadow-pop", below ? "top-full mt-1" : "bottom-full mb-1")}>
           {options.map((o, i) => (
             <button
               key={o.id}

@@ -9,7 +9,7 @@
     "border-input": "#7d7b76",
     "text": "#ebeae7",
     "text-muted": "#a8a6a0",
-    "text-faint": "#8b8984",
+    "text-faint": "#999792",
     "accent": "#6d8ff5",
     "on-accent": "#0d1530",
     "accent-soft": "#1f2a4a",
@@ -62,16 +62,6 @@
     [
       "text-muted",
       "hover"
-    ],
-    [
-      "text-faint",
-      "bg",
-      "large"
-    ],
-    [
-      "text-faint",
-      "surface",
-      "large"
     ],
     [
       "on-accent",
@@ -143,6 +133,22 @@
     [
       "on-danger",
       "danger"
+    ],
+    [
+      "text-faint",
+      "bg"
+    ],
+    [
+      "text-faint",
+      "surface"
+    ],
+    [
+      "text-faint",
+      "surface-2"
+    ],
+    [
+      "text-faint",
+      "hover"
     ]
   ],
   "shadow": {

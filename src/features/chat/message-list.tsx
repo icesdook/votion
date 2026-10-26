@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckSquare, FilePlus, MoreHorizontal, Pencil, SmilePlus, Trash2, RotateCw } from "lucide-react";
 import * as api from "@/data/api";
@@ -274,35 +274,44 @@ function MessageRow({ m, grouped }: { m: Message; grouped: boolean }) {
   );
 }
 
-/** Estado de envío con cola local: si no hay conexión, se reintenta al volver. */
+/** Estado de envío con cola local: si no hay conexión, se reintenta solo al volver. */
 export function useSender(channelId: ID) {
   const [pending, setPending] = useState<Pending[]>([]);
   const toast = useToast();
+  const queue = useRef<Pending[]>([]);
 
-  const attempt = async (p: Pending) => {
-    setPending((s) => s.map((x) => (x.clientId === p.clientId ? { ...x, failed: false } : x)));
-    if (typeof navigator !== "undefined" && !navigator.onLine) {
-      setPending((s) => s.map((x) => (x.clientId === p.clientId ? { ...x, failed: true } : x)));
-      return;
-    }
-    try {
-      await api.sendMessage(channelId, p.body, p.clientId);
-      setPending((s) => s.filter((x) => x.clientId !== p.clientId));
-    } catch {
-      setPending((s) => s.map((x) => (x.clientId === p.clientId ? { ...x, failed: true } : x)));
-      toast({ text: "No se pudo enviar el mensaje.", kind: "error" });
-    }
-  };
+  const update = useCallback((fn: (s: Pending[]) => Pending[]) => {
+    queue.current = fn(queue.current);
+    setPending(queue.current);
+  }, []);
+
+  const attempt = useCallback(
+    async (p: Pending) => {
+      if (!navigator.onLine) {
+        update((s) => s.map((x) => (x.clientId === p.clientId ? { ...x, failed: true } : x)));
+        return;
+      }
+      update((s) => s.map((x) => (x.clientId === p.clientId ? { ...x, failed: false } : x)));
+      try {
+        await api.sendMessage(channelId, p.body, p.clientId); // idempotente por clientId
+        update((s) => s.filter((x) => x.clientId !== p.clientId));
+      } catch {
+        update((s) => s.map((x) => (x.clientId === p.clientId ? { ...x, failed: true } : x)));
+        toast({ text: "No se pudo enviar el mensaje.", kind: "error" });
+      }
+    },
+    [channelId, toast, update],
+  );
 
   useEffect(() => {
-    const onOnline = () => pending.filter((p) => p.failed).forEach(attempt);
+    const onOnline = () => queue.current.filter((p) => p.failed).forEach((p) => attempt(p));
     window.addEventListener("online", onOnline);
     return () => window.removeEventListener("online", onOnline);
-  });
+  }, [attempt]);
 
   const send = (body: RichText) => {
     const p: Pending = { clientId: crypto.randomUUID(), body, createdAt: new Date().toISOString() };
-    setPending((s) => [...s, p]);
+    update((s) => [...s, p]);
     attempt(p);
   };
 

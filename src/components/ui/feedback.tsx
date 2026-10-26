@@ -18,7 +18,7 @@ export function EmptyState({
       <span className="text-text-faint [&_svg]:size-8" aria-hidden>
         {icon}
       </span>
-      <p className="text-sm font-semibold">{title}</p>
+      <h2 className="text-sm font-semibold">{title}</h2>
       {text && <p className="max-w-xs text-sm text-text-muted">{text}</p>}
       {action && <div className="mt-2">{action}</div>}
     </div>

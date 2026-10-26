@@ -92,6 +92,7 @@ export function PageEditor({
         placeholders: { ...es.placeholders, default: "Escribe algo o presiona / para ver opciones", emptyDocument: "Escribe algo o presiona / para ver opciones" },
       },
       initialContent: initial.length ? (initial as never) : undefined,
+      domAttributes: { editor: { "aria-label": "Contenido de la página" } },
     },
     [pageId],
   );

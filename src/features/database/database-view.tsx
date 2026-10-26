@@ -312,7 +312,11 @@ function TableView({ rows, props, canEdit, databaseId, onOpenRow, run, onNew }: 
           {props.map((p) => (
             <PropertyHeader key={p.id} prop={p} canEdit={canEdit} run={run} />
           ))}
-          {canEdit && <AddPropertyButton databaseId={databaseId} run={run} />}
+          {canEdit && (
+            <div role="columnheader" aria-label="Agregar propiedad">
+              <AddPropertyButton databaseId={databaseId} run={run} />
+            </div>
+          )}
         </div>
         {rows.map((r, ri) => (
           <div role="row" key={r.id} className="group flex border-b border-border hover:bg-surface">
@@ -338,12 +342,12 @@ function TableView({ rows, props, canEdit, databaseId, onOpenRow, run, onNew }: 
             ))}
           </div>
         ))}
-        {canEdit && (
-          <button onClick={onNew} className="flex h-8 w-72 items-center gap-1 px-2 text-sm text-text-muted hover:bg-hover">
-            <Plus className="size-4" /> Nueva
-          </button>
-        )}
       </div>
+      {canEdit && (
+        <button onClick={onNew} className="flex h-8 w-72 items-center gap-1 px-2 text-sm text-text-muted hover:bg-hover">
+          <Plus className="size-4" /> Nueva
+        </button>
+      )}
     </div>
   );
 }
