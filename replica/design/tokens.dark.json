@@ -1,0 +1,152 @@
+{
+  "_about": "Tema oscuro: mismos roles.",
+  "color": {
+    "bg": "#191918",
+    "surface": "#202020",
+    "surface-2": "#2a2a29",
+    "hover": "#2f2f2e",
+    "border": "#343432",
+    "border-input": "#7d7b76",
+    "text": "#ebeae7",
+    "text-muted": "#a8a6a0",
+    "text-faint": "#8b8984",
+    "accent": "#6d8ff5",
+    "on-accent": "#0d1530",
+    "accent-soft": "#1f2a4a",
+    "on-accent-soft": "#c4d3ff",
+    "focus": "#6d8ff5",
+    "danger": "#f07b72",
+    "success": "#5fc48d",
+    "warning": "#e3a94a",
+    "mention-bg": "#3b3220",
+    "on-mention": "#f3d58f",
+    "tag-gray-bg": "#373735",
+    "tag-gray": "#d6d4cf",
+    "tag-blue-bg": "#1e3048",
+    "tag-blue": "#a9c9f2",
+    "tag-green-bg": "#1e3627",
+    "tag-green": "#9ad9b1",
+    "tag-yellow-bg": "#3a3016",
+    "tag-yellow": "#ecd08a",
+    "tag-red-bg": "#43231f",
+    "tag-red": "#f2aaa1",
+    "tag-purple-bg": "#33254a",
+    "tag-purple": "#d3b8f2",
+    "on-danger": "#2a0d0a"
+  },
+  "pairs": [
+    [
+      "text",
+      "bg"
+    ],
+    [
+      "text",
+      "surface"
+    ],
+    [
+      "text",
+      "surface-2"
+    ],
+    [
+      "text",
+      "hover"
+    ],
+    [
+      "text-muted",
+      "bg"
+    ],
+    [
+      "text-muted",
+      "surface"
+    ],
+    [
+      "text-muted",
+      "hover"
+    ],
+    [
+      "text-faint",
+      "bg",
+      "large"
+    ],
+    [
+      "text-faint",
+      "surface",
+      "large"
+    ],
+    [
+      "on-accent",
+      "accent"
+    ],
+    [
+      "accent",
+      "bg"
+    ],
+    [
+      "on-accent-soft",
+      "accent-soft"
+    ],
+    [
+      "danger",
+      "bg"
+    ],
+    [
+      "success",
+      "bg"
+    ],
+    [
+      "warning",
+      "bg"
+    ],
+    [
+      "on-mention",
+      "mention-bg"
+    ],
+    [
+      "border-input",
+      "bg",
+      "ui"
+    ],
+    [
+      "focus",
+      "bg",
+      "ui"
+    ],
+    [
+      "focus",
+      "surface",
+      "ui"
+    ],
+    [
+      "tag-gray",
+      "tag-gray-bg"
+    ],
+    [
+      "tag-blue",
+      "tag-blue-bg"
+    ],
+    [
+      "tag-green",
+      "tag-green-bg"
+    ],
+    [
+      "tag-yellow",
+      "tag-yellow-bg"
+    ],
+    [
+      "tag-red",
+      "tag-red-bg"
+    ],
+    [
+      "tag-purple",
+      "tag-purple-bg"
+    ],
+    [
+      "on-danger",
+      "danger"
+    ]
+  ],
+  "shadow": {
+    "card": "0 0 0 1px rgba(255,255,255,.08)",
+    "pop": "0 8px 28px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08)"
+  }
+}
