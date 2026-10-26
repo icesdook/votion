@@ -21,6 +21,7 @@ import { CommentsPanel, type Draft } from "./comments-panel";
 import { SharePopover } from "./share-popover";
 import { HistoryDialog } from "./history-dialog";
 import { PageChatDock } from "./page-chat-dock";
+import { useCommentHighlights } from "./comment-highlights";
 import { cn } from "@/lib/cn";
 
 const PageEditor = dynamic(() => import("./editor").then((m) => m.PageEditor), {
@@ -105,6 +106,12 @@ export function PageBody({ pageId, embedded, onOpenAsPage }: { pageId: ID; embed
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const pendingContent = useRef<PageContent | null>(null);
   const [initial] = useState(() => page?.content ?? []);
+  const [focusThread, setFocusThread] = useState<ID | null>(null);
+  const pageThreads = db.commentThreads.filter((t) => t.pageId === pageId);
+  useCommentHighlights(pageId, pageThreads, (threadId) => {
+    setPanel("comments");
+    setFocusThread(threadId);
+  });
 
   const flush = useCallback(async () => {
     if (!pendingContent.current) return;
@@ -260,7 +267,17 @@ export function PageBody({ pageId, embedded, onOpenAsPage }: { pageId: ID; embed
   const side = panel && (
     <div className="fixed inset-0 z-30 bg-bg md:static md:z-auto md:w-[var(--layout-chat-dock)] md:shrink-0 md:border-l md:border-border">
       {panel === "comments" ? (
-        <CommentsPanel pageId={pageId} draft={draft} onDraftDone={() => setDraft(null)} onClose={() => (setPanel(null), setDraft(null))} onJump={jumpToBlock} />
+        <CommentsPanel
+          pageId={pageId}
+          draft={draft}
+          focusThread={focusThread}
+          onDraftDone={() => setDraft(null)}
+          onClose={() => {
+            setPanel(null);
+            setDraft(null);
+          }}
+          onJump={jumpToBlock}
+        />
       ) : (
         <PageChatDock pageId={pageId} onClose={() => setPanel(null)} />
       )}

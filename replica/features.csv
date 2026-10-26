@@ -19,7 +19,7 @@ Mención @persona en página,colaboración,must,yes,yes,avisa solo a quien tiene
 Mención @página con enlace interno,colaboración,should,yes,yes,con [[
 Mención @fecha,colaboración,could,yes,no,
 Comentarios a nivel de página,colaboración,must,yes,yes,
-Comentarios inline sobre texto o bloque,colaboración,must,yes,partial,anclados al bloque con la cita y salto al bloque; sin resaltado del texto dentro del editor
+Comentarios inline sobre texto o bloque,colaboración,must,yes,yes,anclados al bloque con la cita; el texto se resalta (CSS Highlight API) y al tocarlo abre su hilo
 Resolver y reabrir hilos de comentarios,colaboración,must,yes,yes,
 Panel de comentarios con filtro,colaboración,should,yes,yes,
 Reacciones emoji en comentarios,colaboración,could,yes,yes,

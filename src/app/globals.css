@@ -76,3 +76,12 @@
   transition: background-color 600ms ease;
   border-radius: var(--radius-sm);
 }
+
+/* texto con comentarios abiertos (CSS Custom Highlight API) */
+::highlight(ofi-comment) {
+  background-color: var(--color-mention-bg);
+  color: var(--color-on-mention);
+  text-decoration: underline;
+  text-decoration-color: var(--color-warning);
+  text-decoration-thickness: 2px;
+}

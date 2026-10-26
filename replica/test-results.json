@@ -211,12 +211,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3264,
+                      "duration": 3808,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:26.264Z",
+                      "startTime": "2026-10-26T21:01:18.335Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -245,12 +245,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5752,
+                      "duration": 5600,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:26.496Z",
+                      "startTime": "2026-10-26T21:01:18.720Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -279,12 +279,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 7679,
+                      "duration": 6564,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:26.223Z",
+                      "startTime": "2026-10-26T21:01:18.269Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -313,12 +313,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4966,
+                      "duration": 5890,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:29.998Z",
+                      "startTime": "2026-10-26T21:01:22.652Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -347,12 +347,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5249,
+                      "duration": 4505,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:32.837Z",
+                      "startTime": "2026-10-26T21:01:24.644Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -381,12 +381,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 4577,
+                      "duration": 4675,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:34.195Z",
+                      "startTime": "2026-10-26T21:01:25.091Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -415,12 +415,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5268,
+                      "duration": 4980,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:35.006Z",
+                      "startTime": "2026-10-26T21:01:28.572Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -449,12 +449,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5138,
+                      "duration": 4256,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:38.107Z",
+                      "startTime": "2026-10-26T21:01:29.182Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -483,12 +483,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 5969,
+                      "duration": 6073,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:38.784Z",
+                      "startTime": "2026-10-26T21:01:29.800Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -514,15 +514,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 9605,
+                      "duration": 10603,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:40.294Z",
+                      "startTime": "2026-10-26T21:01:33.455Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -556,15 +556,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3754,
+                      "duration": 4962,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:43.258Z",
+                      "startTime": "2026-10-26T21:01:33.634Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -604,12 +604,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2307,
+                      "duration": 1990,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:46.604Z",
+                      "startTime": "2026-10-26T21:02:41.549Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -655,12 +655,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 4521,
+                      "duration": 4893,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:44.790Z",
+                      "startTime": "2026-10-26T21:01:35.921Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -686,15 +686,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3577,
+                      "duration": 2771,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:47.054Z",
+                      "startTime": "2026-10-26T21:01:38.640Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -723,12 +723,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2855,
+                      "duration": 4092,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:49.378Z",
+                      "startTime": "2026-10-26T21:01:40.828Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -757,12 +757,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2690,
+                      "duration": 2430,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:49.939Z",
+                      "startTime": "2026-10-26T21:01:41.438Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -796,15 +796,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8062,
+                      "duration": 7471,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:50.835Z",
+                      "startTime": "2026-10-26T21:01:43.879Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -830,15 +830,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1794,
+                      "duration": 1194,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:52.276Z",
+                      "startTime": "2026-10-26T21:01:44.076Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -864,15 +864,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 6526,
+                      "duration": 7300,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:52.683Z",
+                      "startTime": "2026-10-26T21:01:44.965Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -915,15 +915,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 7427,
+                      "duration": 6912,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:54.092Z",
+                      "startTime": "2026-10-26T21:01:45.479Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -949,15 +949,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5761,
+                      "duration": 4821,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:58.963Z",
+                      "startTime": "2026-10-26T21:01:51.383Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -983,15 +983,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 10988,
+                      "duration": 12853,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:54:59.280Z",
+                      "startTime": "2026-10-26T21:01:52.303Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1025,15 +1025,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5774,
+                      "duration": 4698,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:01.571Z",
+                      "startTime": "2026-10-26T21:01:52.447Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1059,15 +1059,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2667,
+                      "duration": 2964,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:04.751Z",
+                      "startTime": "2026-10-26T21:01:56.237Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1101,15 +1101,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 8397,
+                      "duration": 7193,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:07.385Z",
+                      "startTime": "2026-10-26T21:01:57.167Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1135,15 +1135,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6849,
+                      "duration": 5736,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:07.498Z",
+                      "startTime": "2026-10-26T21:01:59.260Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1154,6 +1154,40 @@
               "id": "a59630271df8ea5710d5-8bde2be957194596a2e1",
               "file": "f03-f06-paginas.spec.ts",
               "line": 116,
+              "column": 7
+            },
+            {
+              "title": "F05-H3 el texto comentado se resalta y al tocarlo abre su hilo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "escritorio",
+                  "projectName": "escritorio",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7684,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-26T21:02:04.378Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a59630271df8ea5710d5-8921bcc4aeb631e87866",
+              "file": "f03-f06-paginas.spec.ts",
+              "line": 134,
               "column": 7
             },
             {
@@ -1172,12 +1206,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4284,
+                      "duration": 5810,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:10.295Z",
+                      "startTime": "2026-10-26T21:02:05.062Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1187,7 +1221,7 @@
               ],
               "id": "a59630271df8ea5710d5-f7a2a7fe950634de2e49",
               "file": "f03-f06-paginas.spec.ts",
-              "line": 134,
+              "line": 164,
               "column": 7
             }
           ]
@@ -1195,7 +1229,7 @@
         {
           "title": "F06 compartir",
           "file": "f03-f06-paginas.spec.ts",
-          "line": 150,
+          "line": 180,
           "column": 6,
           "specs": [
             {
@@ -1211,15 +1245,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 8355,
+                      "duration": 11147,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:14.364Z",
+                      "startTime": "2026-10-26T21:02:05.173Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1229,7 +1263,7 @@
               ],
               "id": "a59630271df8ea5710d5-0fe758a1dbd3c7e93d86",
               "file": "f03-f06-paginas.spec.ts",
-              "line": 151,
+              "line": 181,
               "column": 7
             }
           ]
@@ -1237,7 +1271,7 @@
         {
           "title": "F11 recuperar",
           "file": "f03-f06-paginas.spec.ts",
-          "line": 176,
+          "line": 206,
           "column": 6,
           "specs": [
             {
@@ -1256,12 +1290,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7719,
+                      "duration": 8584,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:14.655Z",
+                      "startTime": "2026-10-26T21:02:10.886Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1271,7 +1305,7 @@
               ],
               "id": "a59630271df8ea5710d5-a0fa254bb770715ef69e",
               "file": "f03-f06-paginas.spec.ts",
-              "line": 177,
+              "line": 207,
               "column": 7
             },
             {
@@ -1287,15 +1321,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 10314,
+                      "duration": 8110,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:15.869Z",
+                      "startTime": "2026-10-26T21:02:12.147Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1305,7 +1339,7 @@
               ],
               "id": "a59630271df8ea5710d5-85e34a21de5b39117550",
               "file": "f03-f06-paginas.spec.ts",
-              "line": 193,
+              "line": 223,
               "column": 7
             }
           ]
@@ -1338,15 +1372,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 5894,
+                      "duration": 5982,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:22.400Z",
+                      "startTime": "2026-10-26T21:02:16.384Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1372,15 +1406,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3486,
+                      "duration": 4539,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:22.783Z",
+                      "startTime": "2026-10-26T21:02:19.499Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1406,15 +1440,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3989,
+                      "duration": 3626,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:26.206Z",
+                      "startTime": "2026-10-26T21:02:20.283Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1440,15 +1474,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 5181,
+                      "duration": 6203,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:26.281Z",
+                      "startTime": "2026-10-26T21:02:22.385Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1474,15 +1508,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4496,
+                      "duration": 4301,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:28.334Z",
+                      "startTime": "2026-10-26T21:02:23.925Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1525,15 +1559,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5462,
+                      "duration": 5384,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:30.220Z",
+                      "startTime": "2026-10-26T21:02:24.059Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1562,12 +1596,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4031,
+                      "duration": 2657,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:31.491Z",
+                      "startTime": "2026-10-26T21:02:28.255Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1593,15 +1627,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 3703,
+                      "duration": 3324,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:32.879Z",
+                      "startTime": "2026-10-26T21:02:28.626Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1627,15 +1661,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2722,
+                      "duration": 3031,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:35.601Z",
+                      "startTime": "2026-10-26T21:02:29.490Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1661,15 +1695,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3232,
+                      "duration": 3567,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:35.787Z",
+                      "startTime": "2026-10-26T21:02:30.953Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1703,15 +1737,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 6460,
+                      "duration": 4503,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:36.630Z",
+                      "startTime": "2026-10-26T21:02:32.013Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1737,15 +1771,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4599,
+                      "duration": 5629,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:38.434Z",
+                      "startTime": "2026-10-26T21:02:32.562Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1771,15 +1805,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 6345,
+                      "duration": 6482,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:39.059Z",
+                      "startTime": "2026-10-26T21:02:34.532Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1813,15 +1847,15 @@
                   "projectName": "escritorio",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2913,
+                      "duration": 3587,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:43.047Z",
+                      "startTime": "2026-10-26T21:02:36.542Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1850,12 +1884,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2708,
+                      "duration": 2608,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-26T20:55:43.112Z",
+                      "startTime": "2026-10-26T21:02:38.207Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1875,9 +1909,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-26T20:54:25.205Z",
-    "duration": 83892.293,
-    "expected": 45,
+    "startTime": "2026-10-26T21:01:17.307Z",
+    "duration": 86429.268,
+    "expected": 46,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, MessageSquare, MoreHorizontal, Pencil, RotateCcw, Trash2, X } from "lucide-react";
 import * as api from "@/data/api";
 import type { CommentThread, ID } from "@/data/types";
@@ -15,7 +15,21 @@ import { cn } from "@/lib/cn";
 
 export type Draft = { blockId: string; quote: string } | null;
 
-export function CommentsPanel({ pageId, draft, onDraftDone, onClose, onJump }: { pageId: ID; draft: Draft; onDraftDone: () => void; onClose: () => void; onJump: (blockId: string) => void }) {
+export function CommentsPanel({
+  pageId,
+  draft,
+  focusThread,
+  onDraftDone,
+  onClose,
+  onJump,
+}: {
+  pageId: ID;
+  draft: Draft;
+  focusThread?: ID | null;
+  onDraftDone: () => void;
+  onClose: () => void;
+  onJump: (blockId: string) => void;
+}) {
   const ctx = useCtx()!;
   const { db, me } = ctx;
   const [filter, setFilter] = useState<"open" | "resolved">("open");
@@ -79,7 +93,7 @@ export function CommentsPanel({ pageId, draft, onDraftDone, onClose, onJump }: {
         )}
         <div className="flex flex-col gap-3">
           {threads.map((t) => (
-            <Thread key={t.id} thread={t} onJump={onJump} canComment={canComment} />
+            <Thread key={t.id} thread={t} onJump={onJump} canComment={canComment} focused={focusThread === t.id} />
           ))}
         </div>
       </div>
@@ -87,15 +101,19 @@ export function CommentsPanel({ pageId, draft, onDraftDone, onClose, onJump }: {
   );
 }
 
-function Thread({ thread, onJump, canComment }: { thread: CommentThread; onJump: (b: string) => void; canComment: boolean }) {
+function Thread({ thread, onJump, canComment, focused }: { thread: CommentThread; onJump: (b: string) => void; canComment: boolean; focused?: boolean }) {
   const ctx = useCtx()!;
   const { db, me } = ctx;
   const comments = db.comments.filter((c) => c.threadId === thread.id).sort((a, b) => a.createdAt.localeCompare(b.createdAt));
   const [editing, setEditing] = useState<ID | null>(null);
   const [replying, setReplying] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (focused) ref.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [focused]);
 
   return (
-    <article className={cn("rounded-lg border border-border p-3", thread.resolvedAt && "bg-surface")} aria-label={`Hilo de ${profileName(db, thread.createdBy)}`}>
+    <article ref={ref} className={cn("rounded-lg border border-border p-3", thread.resolvedAt && "bg-surface", focused && "ring-2 ring-focus")} aria-label={`Hilo de ${profileName(db, thread.createdBy)}`}>
       <div className="mb-2 flex items-start gap-2">
         {thread.anchor ? (
           <button onClick={() => thread.blockId && onJump(thread.blockId)} className="min-w-0 flex-1 border-l-2 border-mention-bg pl-2 text-left text-xs text-text-muted hover:text-text">

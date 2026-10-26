@@ -131,6 +131,36 @@ test.describe("F05 comentar y mencionar", () => {
     await expect(page.getByText("De acuerdo")).toBeVisible();
   });
 
+  test("F05-H3 el texto comentado se resalta y al tocarlo abre su hilo", async ({ page, errors }) => {
+    void errors;
+    await loginAs(page, "camila");
+    await page.goto("/w/p/p-manual");
+    await page.locator(".bn-editor").waitFor();
+    const count = () => page.evaluate(() => (CSS as unknown as { highlights: Map<string, Set<Range>> }).highlights.get("ofi-comment")?.size ?? 0);
+    await expect.poll(count).toBe(1);
+    // clic justo sobre el texto resaltado
+    const box = await page.evaluate(() => {
+      const r = [...((CSS as unknown as { highlights: Map<string, Set<Range>> }).highlights.get("ofi-comment") ?? [])][0].getBoundingClientRect();
+      return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+    });
+    await page.mouse.click(box.x, box.y);
+    await expect(page.getByRole("complementary", { name: "Comentarios" })).toBeVisible();
+    await expect(page.getByRole("article", { name: /Hilo de Javiera/ })).toHaveClass(/ring-2/);
+    // comentar una selección nueva
+    const p = page.locator(".bn-editor").getByText("Reunión de equipo los lunes a las 10:00.", { exact: false });
+    await p.click();
+    await page.keyboard.press("End");
+    await page.keyboard.press("Shift+Home");
+    await page.getByRole("button", { name: "Comentar", exact: true }).click();
+    const input = page.getByLabel("Comentar la selección");
+    await input.fill("¿Se puede mover al martes?");
+    await input.press("Enter");
+    await expect.poll(count).toBe(2);
+    // resolver quita el resaltado
+    await page.getByRole("article", { name: /Hilo de Camila/ }).getByRole("button", { name: /Resolver hilo/ }).click();
+    await expect.poll(count).toBe(1);
+  });
+
   test("F05-E1 mencionar a alguien sin acceso no le avisa", async ({ page, errors }) => {
     void errors;
     await loginAs(page, "camila");
