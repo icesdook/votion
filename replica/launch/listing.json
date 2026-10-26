@@ -1,0 +1,21 @@
+{
+  "avoid": [
+    "Notion",
+    "Notion Labs",
+    "Notion AI",
+    "Votion"
+  ],
+  "app_store": {
+    "name": "Telar: oficina en equipo",
+    "subtitle": "Páginas, tareas y chat juntos",
+    "promotional_text": "Tu oficina viene armada: bienvenida, tablero de tareas, reuniones y manual listos desde el primer minuto. Para equipos de hasta 10 personas.",
+    "description": "Telar es el lugar de tu oficina para escribir, organizar el trabajo y conversar, sin armar nada desde cero.\n\nAl crear tu oficina ya tienes:\n- Una página de bienvenida con los primeros pasos\n- Un tablero de tareas con estado, responsable y fecha\n- Una plantilla de reuniones semanales\n- Un manual de la oficina para completar\n\nTrabajen juntos:\n- Páginas con títulos, listas, casillas y tablas de tareas\n- Comentarios sobre el texto y menciones con @ que avisan a la persona\n- Canales, mensajes directos y una conversación al lado de cada página\n- Convierte un mensaje en tarea con un toque\n- Búsqueda en páginas, mensajes y personas\n\nPensado para oficinas pequeñas:\n- Hasta 10 personas por oficina\n- Precio fijo por oficina, no por persona\n- Se cancela en un clic\n- Sin inteligencia artificial obligatoria\n- En español\n\nPrueba gratis por 30 días, sin tarjeta.",
+    "keywords": "pyme,tablero,documentos,wiki,reuniones,colaborar,proyectos,notas,kanban,trabajo",
+    "whats_new": "Comentarios sobre el texto: selecciona una frase, comenta y tu equipo lo ve resaltado."
+  },
+  "google_play": {
+    "title": "Telar: oficina en equipo",
+    "short_description": "Páginas, tareas y conversaciones de tu oficina en un solo lugar, en español.",
+    "full_description": "Telar es el lugar de tu oficina para escribir, organizar el trabajo y conversar, sin armar nada desde cero.\n\nAl crear tu oficina ya tienes una página de bienvenida, un tablero de tareas, una plantilla de reuniones y un manual para completar.\n\nPáginas con listas y tablas de tareas, comentarios y menciones con @, canales y mensajes directos, y una conversación al lado de cada página. Convierte un mensaje en tarea con un toque.\n\nHasta 10 personas por oficina, precio fijo por oficina y cancelación en un clic. Prueba gratis por 30 días, sin tarjeta."
+  }
+}

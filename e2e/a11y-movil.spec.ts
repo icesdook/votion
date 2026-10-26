@@ -12,6 +12,15 @@ const SCREENS: [string, string][] = [
 ];
 
 test.describe("Accesibilidad (axe: sin problemas serios ni críticos)", () => {
+  test("Landing", async ({ page, errors }) => {
+    void errors;
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1, name: /armada desde el primer minuto/ })).toBeVisible();
+    await expectAccessible(page, "landing");
+    await page.getByRole("link", { name: "Probar gratis 30 días" }).first().click();
+    await page.waitForURL("**/login");
+  });
+
   test("S01 login", async ({ page, errors }) => {
     void errors;
     await page.goto("/login");
@@ -58,6 +67,13 @@ test.describe("Teclado", () => {
 });
 
 test.describe("Móvil 390px @movil", () => {
+  test("landing sin desbordes @movil", async ({ page, errors }) => {
+    void errors;
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  });
+
   test("cajón, página y chat sin desbordes @movil", async ({ page, errors }) => {
     void errors;
     await loginAs(page, "camila");
