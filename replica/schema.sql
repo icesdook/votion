@@ -1,3 +1,4 @@
+-- Copia aplicada: supabase/migrations/. Este archivo queda como referencia del diseño.
 -- Esquema inicial (migración 0001). Postgres 15+ en Supabase.
 -- Reglas de acceso: Row Level Security en todas las tablas, con funciones auxiliares.
 -- Tiempos en timestamptz (UTC). Sin dinero en el MVP (la facturación se agrega en replica-backend).

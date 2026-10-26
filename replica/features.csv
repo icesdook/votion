@@ -1,8 +1,8 @@
 feature,area,priority,original,clone,notes
-Registro e inicio con enlace mágico por email,onboarding,must,yes,partial,flujo completo; el envío real del correo llega con replica-backend
+Registro e inicio con enlace mágico por email,onboarding,must,yes,partial,flujo completo; el envío real del correo llega con replica-backend; plantilla de correo y perfil automático listos
 Inicio con Google,onboarding,should,yes,no,replica-backend
 Crear espacio de trabajo de la oficina,onboarding,must,yes,yes,
-Invitar compañeros por email (límite 10),onboarding,must,yes,partial,"límite de 10 es propio del enfoque; invitación, límite y enlace copiable listos; el correo real llega con replica-backend"
+Invitar compañeros por email (límite 10),onboarding,must,yes,partial,"límite de 10 es propio del enfoque; invitación, límite y enlace copiable listos; el correo real llega con replica-backend; RPC invite_members + correo Resend listos y probados"
 Aceptar invitación por enlace,onboarding,must,yes,yes,
 Sidebar con árbol de páginas anidadas,navegación,must,yes,yes,
 Crear página nueva desde el sidebar,páginas,must,yes,yes,
@@ -45,7 +45,7 @@ Inicio con páginas recientes y actividad,navegación,should,yes,yes,más mis ta
 Modo oscuro,preferencias,could,yes,yes,
 Chat del equipo por canales,chat,must,no,yes,nuevo: Notion no tiene chat interno
 Mensajes directos 1 a 1,chat,must,no,yes,nuevo
-Mensajes en tiempo real con no leídos,chat,must,no,partial,nuevo; en vivo entre pestañas del mismo navegador; entre equipos con Supabase Realtime
+Mensajes en tiempo real con no leídos,chat,must,no,partial,nuevo; en vivo entre pestañas del mismo navegador; entre equipos con Supabase Realtime; tablas publicadas en supabase_realtime
 Enlazar páginas en el chat con vista previa,chat,must,no,yes,nuevo: conecta chat y documentos
 Convertir mensaje en tarea o página,chat,should,no,yes,nuevo: diferenciador
 Chat lateral sobre una página,chat,should,no,yes,nuevo
