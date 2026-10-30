@@ -9,6 +9,7 @@ import { useDB, useMe } from "@/data/hooks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar } from "@/components/ui/avatar";
+import { DEMO_MODE } from "@/lib/mode";
 
 export function AuthCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
@@ -27,7 +28,6 @@ export function AuthCard({ title, subtitle, children }: { title: string; subtitl
   );
 }
 
-const DEMO_MODE = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_DEMO === "1";
 
 export function LoginView() {
   const router = useRouter();

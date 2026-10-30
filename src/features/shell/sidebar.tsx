@@ -29,6 +29,7 @@ import { useToast } from "@/components/ui/toast";
 import { PageTree } from "./page-tree";
 import { NewChannelDialog } from "./new-channel-dialog";
 import { cn } from "@/lib/cn";
+import { DEMO_MODE } from "@/lib/mode";
 
 function NavLink({ href, icon, label, badge, active }: { href: string; icon: React.ReactNode; label: string; badge?: number; active?: boolean }) {
   return (
@@ -128,7 +129,7 @@ export function Sidebar({ onSearch, onCollapse }: { onSearch: () => void; onColl
             >
               <LogOut /> Cerrar sesión
             </MenuItem>
-            {process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_DEMO === "1" ? (
+            {DEMO_MODE ? (
               <MenuItem
                 onSelect={() => {
                   resetDemo();

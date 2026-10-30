@@ -87,7 +87,7 @@ export function HomeView() {
         </div>
 
         <div className="mt-10 grid gap-8 md:grid-cols-2">
-          <section aria-labelledby="h-tareas">
+          <section aria-labelledby="h-tareas" className="min-w-0">
             <h2 id="h-tareas" className="mb-2 text-sm font-semibold text-text-muted">
               Mis tareas pendientes
             </h2>
@@ -108,7 +108,7 @@ export function HomeView() {
             )}
           </section>
 
-          <section aria-labelledby="h-chat">
+          <section aria-labelledby="h-chat" className="min-w-0">
             <h2 id="h-chat" className="mb-2 text-sm font-semibold text-text-muted">
               Conversaciones recientes
             </h2>

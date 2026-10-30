@@ -74,6 +74,15 @@ test.describe("Móvil 390px @movil", () => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   });
 
+  test("inicio: ninguna tarjeta se sale de la pantalla @movil", async ({ page, errors }) => {
+    void errors;
+    await loginAs(page, "camila");
+    const sticking = await page.evaluate(() =>
+      [...document.querySelectorAll("main li, main section")].filter((el) => el.getBoundingClientRect().right > window.innerWidth + 1).length,
+    );
+    expect(sticking).toBe(0);
+  });
+
   test("cajón, página y chat sin desbordes @movil", async ({ page, errors }) => {
     void errors;
     await loginAs(page, "camila");

@@ -9,6 +9,7 @@ import { Sidebar } from "./sidebar";
 import { SearchPalette } from "./search-palette";
 import { ThemeSync } from "./theme-sync";
 import { cn } from "@/lib/cn";
+import { DemoBanner } from "./demo-banner";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const db = useDB();
@@ -69,6 +70,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       )}
       <div className="flex min-w-0 flex-1 flex-col">
+        <DemoBanner />
         <div className={cn("flex h-11 shrink-0 items-center gap-1 px-2 md:hidden", collapsed && "md:flex")}>
           <button
             className="rounded-md p-2 text-text-muted hover:bg-hover"

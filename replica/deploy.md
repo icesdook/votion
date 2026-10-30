@@ -66,9 +66,22 @@ Dominio canónico: el apex (`telar.cl`), con `www` redirigiendo a él. HTTPS aut
 - Recorrido completo en el sitio real: crear oficina → invitar → la invitada entra desde **su teléfono** → página, comentario con @, tarea asignada, mensaje → tarea.
 - Revisar a diario los logs de Supabase (Auth y Postgres) y los rebotes de Resend.
 
-## Demo pública (se puede hacer ahora)
+## Demo pública (lista para publicar)
 
-1. Importas el repo en Vercel.
-2. Variables: `NEXT_PUBLIC_DATA=fake`, `NEXT_PUBLIC_DEMO=1`. No hacen falta claves.
-3. Deploy. Queda en `https://[proyecto].vercel.app`, con el equipo de ejemplo en el login. Los datos viven en el navegador de cada visitante, no hay base de datos.
-4. Ojo: cualquiera con el enlace ve la demo. No pongas datos reales ahí.
+Preparada el 2026-10-30. **No necesita variables ni claves**: sin Supabase, la app es una demo por definición. Los datos de ejemplo viven en el navegador de cada visitante, hay un aviso fijo de "Demo" con el botón "Empezar de nuevo", y la página va marcada `noindex`, así que Google no la indexa.
+
+Verificado con un build de producción sin variables (igual que Vercel): 50/50 pruebas, barrido limpio.
+
+### Publicarla (5 minutos, lo haces tú)
+1. Entra a **vercel.com/signup** con tu cuenta de GitHub (plan Hobby, gratis).
+2. **Add New → Project → Import Git Repository**. Si `votion` no aparece, pulsa *Adjust GitHub App Permissions* y dale acceso a `icesdook/votion`.
+3. Deja todo como viene (Framework: Next.js) y pulsa **Deploy**. No agregues variables.
+4. Al terminar queda en `https://votion-xxxx.vercel.app`. En *Settings → Domains* puedes cambiarlo a algo como `telar-demo.vercel.app`, sin comprar dominio.
+5. Desde ahí, cada `git push` a `main` actualiza la demo sola.
+
+### Usarla en las entrevistas
+- Primero conversa, después muestra (`launch-plan.md`, punto 1).
+- Abre la demo en dos pestañas: entra como **Camila** en una y como **Matías** en la otra. Escribe en #general o comenta una página en una y muestra cómo aparece en la otra.
+- Recorrido de 3 minutos: Inicio → Tareas del equipo (tablero) → abrir una tarea → #general → "Convertir en tarea" en un mensaje → Manual de la oficina → texto resaltado con comentario.
+- Al terminar, **Empezar de nuevo** deja todo limpio para la siguiente persona.
+- No pidas a nadie que escriba datos reales: es una demo y cualquiera con el enlace puede verla en su propio navegador.

@@ -12,6 +12,7 @@ test.describe("F03 crear y escribir una página", () => {
     await expect(title).toBeFocused();
     await title.fill("Acta reunión lunes ✅");
     await title.press("Enter");
+    await expect(page.getByLabel("Contenido de la página")).toBeFocused();
     await page.keyboard.type("Acordamos revisar los contratos.");
     await expect(page.getByText(/Guardado/)).toBeVisible();
     const id = page.url().split("/").at(-1)!;

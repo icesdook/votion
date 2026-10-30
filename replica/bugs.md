@@ -1,6 +1,6 @@
 # Bugs
 
-Resumen: 9 encontrados, 8 corregidos, 1 abierto (S3). Ningún S1 abierto.
+Resumen: 11 encontrados, 9 corregidos, 2 abiertos (S3, S4). Ningún S1 ni S2 abierto.
 
 | ID | sev | título | estado |
 | --- | --- | --- | --- |
@@ -13,6 +13,8 @@ Resumen: 9 encontrados, 8 corregidos, 1 abierto (S3). Ningún S1 abierto.
 | BUG-007 | S3 | Celdas de la tabla: nombre accesible distinto al texto visible; botón suelto dentro de la grilla | corregido |
 | BUG-008 | S2 | Crear oficina se saltaba el paso de invitar (encontrado en replica-build) | corregido |
 | BUG-009 | S1 | RLS: crear y leer de vuelta una página o canal fallaba; abrir un DM era imposible (encontrado en replica-backend) | corregido |
+| BUG-010 | S3 | En el celular, las tarjetas del inicio se salían por la derecha | corregido (prueba nueva @movil) |
+| BUG-011 | S4 | Si se escribe a menos de 0,1 s de pulsar Enter en el título, con el editor aún cargando, se pierden las primeras letras | **abierto** (solo visto con 3 navegadores en paralelo) |
 
 ---
 
@@ -48,6 +50,12 @@ Opciones: bloque de casilla propio (`createBlockSpec`) o aporte al proyecto Bloc
 
 ### BUG-007 — Tabla accesible (S3)
 Corregido: el nombre de cada celda es "Propiedad: valor visible", y "Nueva" queda fuera de la grilla.
+
+### BUG-010 — Tarjetas del inicio cortadas en el celular (S3)
+Las secciones "Mis tareas" y "Conversaciones recientes" no tenían `min-width: 0` dentro de la grilla, así que el texto largo las empujaba fuera de la pantalla. Se agregó la prueba "inicio: ninguna tarjeta se sale de la pantalla", que falla sin el arreglo (6 elementos afuera) y pasa con él.
+
+### BUG-011 — Primeras letras perdidas al pasar del título al editor (S4, abierto)
+Pasa solo si el editor todavía está cargando. Arreglo posible: guardar lo tecleado durante la espera y escribirlo en el editor cuando tome el foco.
 
 ## Por revisar (no reproducido)
 - Con Supabase real: tiempo real entre computadores distintos, sesión vencida y entrega de correos (casos 📝 en `test-plan.md`).
